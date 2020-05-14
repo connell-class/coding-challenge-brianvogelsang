@@ -16,6 +16,9 @@ export class IndividualListComponent implements OnInit {
 
   myIndex: number = 0;
 
+  nameFilter: string = '';
+  typeFilter: string = '';
+
   myList: GroceryList = {
     listId: 0,
     listName: 'null',
