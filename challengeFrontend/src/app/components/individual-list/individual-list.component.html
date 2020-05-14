@@ -1,0 +1,50 @@
+<div class="myContainer">
+  <p>{{ myList.listName }}</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of this.myItems; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ x.itemName }}</td>
+        <td>{{ x.itemType }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="clickDeleteItem(x.itemId)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input
+    type="text"
+    [(ngModel)]="this.newItem.itemName"
+    placeholder="New Item Name"
+  />
+  <input
+    type="text"
+    [(ngModel)]="this.newItem.itemType"
+    placeholder="New Item Type"
+  />
+  <button
+    type="button"
+    class="btn btn-warning"
+    (click)="clickAddItem(this.newItem)"
+  >
+    Add Item
+  </button>
+
+  <button type="button" class="btn btn-danger" (click)="clickBackButton()">
+    Back to Lists
+  </button>
+</div>
