@@ -1,5 +1,6 @@
 package com.vogelsang.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.vogelsang.model.GroceryItem;
 import com.vogelsang.model.GroceryList;
+import com.vogelsang.service.GroceryItemService;
 import com.vogelsang.service.GroceryListService;
 
 @RestController
@@ -19,6 +22,8 @@ import com.vogelsang.service.GroceryListService;
 public class GroceryListController {
   @Autowired
   private GroceryListService ls;
+  @Autowired
+  private GroceryItemService gs;
 
   @GetMapping
   public List<GroceryList> getAllLists() {
@@ -42,6 +47,12 @@ public class GroceryListController {
 
   @DeleteMapping("/{id}")
   public String deleteListWithParam(@PathVariable("id") int id) {
+    List<GroceryItem> myList = gs.findByListId(id);
+
+    for (int i = 0; i < myList.size(); i++) {
+      gs.deleteById(myList.get(i).getItemId());
+    }
+
     return ls.delete(ls.getById(id));
   }
 

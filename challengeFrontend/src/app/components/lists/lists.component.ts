@@ -68,11 +68,13 @@ export class ListsComponent implements OnInit {
             console.log(e);
           });
       });
+    } else {
+      alert('Enter new list name in text box.');
     }
   }
 
   clickDeleteButton(list: GroceryList) {
-    this.listGetter.deleteTable(list).then((data) => {
+    this.listGetter.deleteTable(list.listId).then((data) => {
       this.lists = [];
       this.listGetter
         .getLists()

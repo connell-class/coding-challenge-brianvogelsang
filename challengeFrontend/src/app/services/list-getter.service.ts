@@ -33,13 +33,13 @@ export class ListGetterService {
       .toPromise();
   }
 
-  deleteTable(g: GroceryList): Promise<any> {
+  deleteTable(id: number): Promise<any> {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'text/plain; charset=utf-8'
     );
     return this.http
-      .delete('http://localhost:9002/grocery-lists/' + g.listId, {
+      .delete('http://localhost:9002/grocery-lists/' + id, {
         headers,
         responseType: 'text',
       })

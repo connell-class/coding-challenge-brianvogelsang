@@ -57,13 +57,19 @@ export class IndividualListComponent implements OnInit {
         });
         this.listGetter.addItemToTable(item, this.passIndex).then((data) => {
           this.myItems = [];
+          this.newItem.itemName = '';
+          this.newItem.itemType = '';
           this.listGetter.getItemsByListId(this.myIndex).then((data) => {
             for (let i of data) {
               this.myItems.push(i);
             }
           });
         });
+      } else {
+        alert('Enter item type.');
       }
+    } else {
+      alert('Enter item name.');
     }
   }
 

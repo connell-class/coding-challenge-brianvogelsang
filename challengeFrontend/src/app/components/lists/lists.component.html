@@ -31,13 +31,13 @@
       </tr>
     </tbody>
   </table>
-
+  <input
+    class="myInput"
+    type="text"
+    [(ngModel)]="this.myList.listName"
+    placeholder="New List Name"
+  />
   <button type="button" class="btn btn-warning" (click)="clickAddTable()">
     Make a new List
   </button>
-  <input
-    type="text"
-    [(ngModel)]="this.myList.listName"
-    placeholder="New Table Name"
-  />
 </div>
