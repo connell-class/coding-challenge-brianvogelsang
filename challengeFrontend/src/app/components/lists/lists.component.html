@@ -8,9 +8,26 @@
     </thead>
     <tbody>
       <tr *ngFor="let x of this.lists; index as i">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>{{ x.listName }}</td>
-        <td>
+        <th
+          scope="row"
+          *ngIf="
+            x.listName.toLowerCase().includes(this.filterBar.toLowerCase())
+          "
+        >
+          {{ i + 1 }}
+        </th>
+        <td
+          *ngIf="
+            x.listName.toLowerCase().includes(this.filterBar.toLowerCase())
+          "
+        >
+          {{ x.listName }}
+        </td>
+        <td
+          *ngIf="
+            x.listName.toLowerCase().includes(this.filterBar.toLowerCase())
+          "
+        >
           <button
             type="button"
             class="btn btn-primary"
@@ -19,8 +36,15 @@
             View
           </button>
         </td>
-        <td>
+        <td
+          *ngIf="
+            x.listName.toLowerCase().includes(this.filterBar.toLowerCase())
+          "
+        >
           <button
+            *ngIf="
+              x.listName.toLowerCase().includes(this.filterBar.toLowerCase())
+            "
             type="button"
             class="btn btn-danger"
             (click)="clickDeleteButton(x)"
@@ -36,6 +60,12 @@
     type="text"
     [(ngModel)]="this.myList.listName"
     placeholder="New List Name"
+  />
+  <input
+    class="myInput"
+    type="text"
+    [(ngModel)]="filterBar"
+    placeholder="Filter..."
   />
   <button type="button" class="btn btn-warning" (click)="clickAddTable()">
     Make a new List

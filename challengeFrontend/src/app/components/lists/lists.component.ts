@@ -13,6 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class ListsComponent implements OnInit {
   lists: GroceryList[] = [];
   items: Item[] = [];
+  filterBar:string = '';
 
   myList: GroceryList = {
     listId: 0,
