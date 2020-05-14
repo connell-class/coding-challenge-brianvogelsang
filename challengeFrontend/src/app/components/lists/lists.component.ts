@@ -54,6 +54,11 @@ export class ListsComponent implements OnInit {
   }
 
   clickAddTable() {
+    if (this.myList.listName.length > 63) {
+      alert('List name must be less than 64 characters long, sorry!');
+      return;
+    }
+
     if (this.myList.listName != '') {
       this.listGetter.addTable(this.myList).then((data) => {
         this.lists = [];
@@ -63,9 +68,10 @@ export class ListsComponent implements OnInit {
             for (let y of data) {
               this.lists.push(y);
             }
+            this.myList.listName = '';
           })
           .catch((e) => {
-            console.log(e);
+            alert('There was an error.');
           });
       });
     } else {
@@ -84,7 +90,7 @@ export class ListsComponent implements OnInit {
           }
         })
         .catch((e) => {
-          console.log(e);
+          alert('There was an error.');
         });
     });
   }

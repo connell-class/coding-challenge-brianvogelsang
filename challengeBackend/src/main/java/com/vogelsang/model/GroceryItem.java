@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -25,9 +26,11 @@ public class GroceryItem {
   private GroceryList list;
 
   @Column(name = "item_name")
+  @Size(max = 64, message = "Max 64 characters")
   private String itemName;
 
   @Column(name = "item_type")
+  @Size(max = 64, message = "Max 64 characters")
   private String itemType;
 
   public GroceryItem() {

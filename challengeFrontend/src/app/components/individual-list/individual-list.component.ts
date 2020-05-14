@@ -50,6 +50,14 @@ export class IndividualListComponent implements OnInit {
   }
 
   clickAddItem(item: Item) {
+    if (this.newItem.itemName.length > 63) {
+      alert('Item name must be less than 64 characters long, sorry!');
+      return;
+    }
+    if (this.newItem.itemType.length > 63) {
+      alert('Item type must be less than 64 characters long, sorry!');
+      return;
+    }
     if (this.newItem.itemName != '') {
       if (this.newItem.itemType != '') {
         this.listGetter.getListById(this.myIndex).then((data) => {

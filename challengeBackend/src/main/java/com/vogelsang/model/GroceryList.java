@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,6 +19,7 @@ public class GroceryList {
   @Column(name = "list_id")
   private int listId;
   @Column(name = "list_name")
+  @Size(max = 64, message = "Max 64 characters")
   private String listName;
 
   public GroceryList() {

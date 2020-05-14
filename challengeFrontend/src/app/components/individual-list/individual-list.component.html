@@ -1,7 +1,10 @@
 <div class="myContainer">
-  <p>{{ myList.listName }}</p>
+  <h1>{{ myList.listName }}</h1>
+  <p *ngIf="this.myItems.length < 1">
+    You don't have any items yet. Try to add one!
+  </p>
 
-  <table class="table">
+  <table class="table" *ngIf="this.myItems.length > 0">
     <thead>
       <tr>
         <th scope="col">#</th>
