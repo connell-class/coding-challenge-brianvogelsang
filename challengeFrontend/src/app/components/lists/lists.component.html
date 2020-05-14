@@ -61,13 +61,14 @@
     [(ngModel)]="this.myList.listName"
     placeholder="New List Name"
   />
+
+  <button type="button" class="btn btn-warning" (click)="clickAddTable()">
+    Make a new List
+  </button>
   <input
     class="myInput"
     type="text"
     [(ngModel)]="filterBar"
     placeholder="Filter..."
   />
-  <button type="button" class="btn btn-warning" (click)="clickAddTable()">
-    Make a new List
-  </button>
 </div>

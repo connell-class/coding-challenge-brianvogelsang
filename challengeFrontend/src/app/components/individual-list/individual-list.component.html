@@ -79,17 +79,18 @@
   <button type="button" class="btn btn-danger" (click)="clickBackButton()">
     Back to Lists
   </button>
-
-  <input
-    class="myInput"
-    type="text"
-    [(ngModel)]="nameFilter"
-    placeholder="Filter by name..."
-  />
-  <input
-    class="myInput"
-    type="text"
-    [(ngModel)]="typeFilter"
-    placeholder="Filter by type..."
-  />
+  <div class="filterDiv">
+    <input
+      class="myInput"
+      type="text"
+      [(ngModel)]="nameFilter"
+      placeholder="Filter by name..."
+    />
+    <input
+      class="myInput"
+      type="text"
+      [(ngModel)]="typeFilter"
+      placeholder="Filter by type..."
+    />
+  </div>
 </div>
