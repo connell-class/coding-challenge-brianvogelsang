@@ -81,12 +81,14 @@
   </button>
   <div class="filterDiv">
     <input
+      *ngIf="this.myItems.length > 0"
       class="myInput"
       type="text"
       [(ngModel)]="nameFilter"
       placeholder="Filter by name..."
     />
     <input
+      *ngIf="this.myItems.length > 0"
       class="myInput"
       type="text"
       [(ngModel)]="typeFilter"
